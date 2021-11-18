@@ -2,19 +2,19 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 public class QuickSort {
-	public int qSteps;
+	public static int qSteps;
 	
 	public QuickSort() {
 		
 	}
 
-	public void sort(Comparable[] a) {
+	public static void sort(Comparable[] a) {
 		//Quick sort sorts a completely random array of integers, so the code will make use of the shuffle method from StdRandom to shuffle the array.
 		StdRandom.shuffle(a);
 		quickSort(a, 0, a.length-1);
 	}
 	
-	private void quickSort(Comparable[] a, int low, int high) {
+	private static void quickSort(Comparable[] a, int low, int high) {
 		qSteps++; //A step will be recorded every time a comparison is made.
 		if (high <= low) return; //If the low point is greater than the high point, either something failed, or nothing was found.
 		int j = partition(a, low, high); //Quick sort works by first selecting a pivot. 
@@ -23,7 +23,7 @@ public class QuickSort {
 		//This ensures that the pivot is always in the correct spot, and when ran recursively throughout the array, will ensure everything is in the correct spot.
 	}
 	
-	private int partition(Comparable[] a, int low, int high) {
+	private static int partition(Comparable[] a, int low, int high) {
 		int i = low, j = high + 1;
 		Comparable v = a[low];
 		while(true) {
